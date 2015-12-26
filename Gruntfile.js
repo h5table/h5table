@@ -18,7 +18,10 @@ module.exports = function (grunt) {
     cwd: 'src/js'
   }, 'h5table/i18n/*.js');
 
-  var testFiles = grunt.file.expand('tests/**/*.html');
+  var testFiles = grunt.file.expand([
+    'tests/**/*.html',
+    '!tests/example.html'
+  ]);
   var testUrls = testFiles.map(function (filePath) {
     return 'http://localhost:9999/' + filePath;
   });
